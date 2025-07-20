@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Project Title</title>
+    <link rel="stylesheet" href="styles.css">  <!-- Add this line to link CSS -->
+</head>
+
+<frameset rows="20%,80%">
+   <frame name="top" src="file:///C:/Users/user/Desktop/all%20files/KA.HTML" />
+   <frame name="main" src="file:///C:/Users/user/Desktop/all%20files/horizontal.html" />
+   <noframes>
+</html>
+
+// Dark Mode Toggle
+const toggleDarkMode = () => {
+    document.body.classList.toggle("dark-mode");
+};
+
+// Adding event listener to a button for dark mode
+document.addEventListener("DOMContentLoaded", () => {
+    const darkModeButton = document.createElement("button");
+    darkModeButton.innerText = "Toggle Dark Mode";
+    darkModeButton.style.position = "fixed";
+    darkModeButton.style.top = "10px";
+    darkModeButton.style.right = "10px";
+    darkModeButton.style.padding = "10px";
+    darkModeButton.style.cursor = "pointer";
+    
+    document.body.appendChild(darkModeButton);
+    darkModeButton.addEventListener("click", toggleDarkMode);
+});
+
+// Form Validation Example
+const validateForm = () => {
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    
+    if (nameInput.value.trim() === "") {
+        alert("Name cannot be empty");
+        return false;
+    }
+    if (!emailInput.value.includes("@")) {
+        alert("Enter a valid email address");
+        return false;
+    }
+    alert("Form submitted successfully!");
+    return true;
+};
+
+// Attaching validation to the form
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+    if (form) {
+        form.addEventListener("submit", (event) => {
+            if (!validateForm()) {
+                event.preventDefault();
+            }
+        });
+    }
+});
